@@ -16,7 +16,82 @@ select,
 textarea {
   font-family: "Roboto", sans-serif;
 }
+.like_user{
+  z-index: 30;
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 35%;
+  height:400px;
+  width:400px;
+  border:1px solid rgb(216, 211, 211);
+  border-radius: 10px;
+  background-color: #fff;
+  transition: 5s ease-in-out;
+}
+.list_numberlike{
+  justify-content: center;
+  
+  }
+  .box__like{
+      height: 338px;
+      overflow:hidden auto;
+  }
+  .information{
+      padding: 20px;
+  }
+.people_like__suggestion-info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+.title__like-top{
+  margin-top: 15px;
+  border-bottom: 1px solid rgb(165, 157, 157);
+}
+.people_like__suggestion-info span{
+font-size: 13px;
+}
+.people_like__suggestion-info a{
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+}
+.title_like{
 
+  text-align: center;
+ 
+}
+button.people_like-button.btn.btn-primary {
+  font-size: 13px;
+}
+#overBg {
+    
+  /* background-color:rgb(0, 0, 0) !important;
+  opacity: 0.5 !important; */
+  height:100%;
+  inset: 0;
+  z-index: 10;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* position:fixed; */
+  
+}
+.people_like-button {
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--link);
+  flex-shrink: 0;
+}
 /* Vars */
 :root {
   --primary: hsl(0, 0%, 100%);

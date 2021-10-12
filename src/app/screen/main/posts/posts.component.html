@@ -70,8 +70,202 @@
             </a>
 
             <span>
-              Liked by<span class="post__name--underline cursor-pointer">user123</span>
+              Liked by<span class="post__name--underline cursor-pointer"><a href="" (click)="listLike($event)"> user123</a></span>
             </span>
+            <div (click)="outlike()" id="overBg"></div>
+   
+            <div class="like_user flex items-center">
+                <div class="title__like-top">
+                    <div class="row container">
+                        <div class="col-1">
+                        </div>
+                        <div class="col-10">
+                            <h6 class="title_like">Likes</h6>
+                        </div>
+                        <div class="col-1">
+                           <a (click)="clearBox($event)" id="clearBox__likes" href="">
+                            <svg  aria-label="Đóng" width="24" height="24" viewBox="0 0 48 48"  style="margin-bottom: .5rem;">
+                                <path clip-rule="evenodd" d="M41.1 9.1l-15 15L41 39c.6.6.6 1.5 0 2.1s-1.5.6-2.1 0L24 26.1l-14.9 15c-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1l14.9-15-15-15c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l15 15 15-15c.6-.6 1.5-.6 2.1 0 .6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path>
+                            </svg>
+                           </a>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="box__like" >
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+            
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="list_numberlike">
+                        <div class="information">
+                            <div class="side-menu__suggestion">
+                                <a href="#" class="side-menu__suggestion-avatar">
+                                    <img src="assets/default-user.png" alt="User Picture">
+                                </a>
+                                <div class="people_like__suggestion-info">
+                                    <a href="#">usernick16</a>
+                                    <span>description</span>
+                                </div>
+                                <button class="people_like-button btn btn-primary">Follow</button>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div> 
           </div>
 
           <div class="post__description flex flex-col">
