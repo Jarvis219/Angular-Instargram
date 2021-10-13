@@ -9,6 +9,7 @@ import { MainComponent } from '../main/main.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { Page404Component } from '../page404/page404.component';
 import { GuardService } from 'src/app/services/guard.service';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path: 'messenger',
         component: MessengerComponent,
+        canActivate: [GuardService],
+      },
+      {
+        path: 'edit-profile',
+        component: EditProfileComponent,
         canActivate: [GuardService],
       },
       {
