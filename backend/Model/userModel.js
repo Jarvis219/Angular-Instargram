@@ -65,7 +65,6 @@ userSchema.virtual('password').set(function (password) {
 })
 
 // trả về password đã mã hóa 2 lớp
-
 userSchema.methods = {
   authenticate: function (plainText) {
     return this.encrytPassword(plainText) == this.hashed_password;
