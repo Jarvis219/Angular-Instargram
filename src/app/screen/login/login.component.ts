@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   private user: UserModel[] = [];
   public errors?: string;
+  public loading: boolean = false;
 
   userForm = new FormGroup({
     email: new FormControl('', [
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   public login(): void | boolean {
+    this.loading = true;
     if (this.userForm.invalid) {
       return false;
     }
@@ -40,18 +42,21 @@ export class LoginComponent implements OnInit {
         password: this.userForm.value.password,
       },
     ];
-    this.userService.signIn(this.user).subscribe(
-      (data: any) => {
-        this.userService.setToken(data.token);
-        this.userService.setID(data.user._id);
-
-        this.router.navigate(['/']);
-      },
-      (err: any) => {
-        let { error } = err;
-        this.errors = error.error;
-      }
-    );
+    setTimeout(() => {
+      this.userService.signIn(this.user).subscribe(
+        (data: any) => {
+          this.loading = false;
+          this.userService.setToken(data.token);
+          this.userService.setID(data.user._id);
+          this.router.navigate(['/']);
+        },
+        (err: any) => {
+          this.loading = false;
+          let { error } = err;
+          this.errors = error.error;
+        }
+      );
+    }, 1000);
   }
 
   get email() {

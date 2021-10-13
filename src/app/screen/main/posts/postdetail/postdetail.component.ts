@@ -1,5 +1,10 @@
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { PostModel } from 'src/app/model/post-model';
 import { CommentService } from 'src/app/services/comment.service';
@@ -11,33 +16,29 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './postdetail.component.html',
   styleUrls: ['./postdetail.component.css'],
 })
-export class PostdetailComponent implements OnInit {
+export class PostdetailComponent implements OnChanges, OnInit {
+  @Input() itemDetail: any;
   public comments: any = [];
   private comment: CommentModel[] = [];
   public postItem: any;
   private id?: string;
   constructor(
-    private activeRoute: ActivatedRoute,
-    private router: Router,
     private postService: PostService,
     private commentService: CommentService,
     private userService: UserService
-  ) {
-    router.events.forEach((event) => {
-      if (event instanceof NavigationEnd) {
-        if (this.activeRoute.snapshot.params['id'] != undefined) {
-          this.id = this.activeRoute.snapshot.params['id'];
-          this.postDetailItem();
-        }
-      }
-    });
-  }
+  ) {}
 
   commentForm = new FormGroup({
     content: new FormControl(''),
   });
 
   ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    let { itemDetail } = changes;
+    this.id = itemDetail.currentValue;
+    this.postDetailItem();
+  }
 
   public createComment(): void {
     if (!this.id) return;

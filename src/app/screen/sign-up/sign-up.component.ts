@@ -14,6 +14,7 @@ export class SignUpComponent implements OnInit {
   public error?: string;
   public uniqueEmail?: string;
   public countEmail?: number = 0;
+  public loading: boolean = false;
 
   userForm = new FormGroup({
     name: new FormControl('', [
@@ -44,6 +45,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {}
 
   public register(): void {
+    this.loading = true;
     this.user = [
       {
         name: this.userForm.value.name,
@@ -62,8 +64,10 @@ export class SignUpComponent implements OnInit {
         this.message = message;
         const { emailToken }: any = data;
         this.setTokenSignUp(emailToken);
+        this.loading = false;
       },
       (err: any) => {
+        this.loading = false;
         console.log(err);
       }
     );

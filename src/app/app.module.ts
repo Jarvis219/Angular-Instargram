@@ -4,11 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ActiveEmailComponent } from './screen/login/active-email/active-email.component';
+import { SocketService } from './services/socket.service';
 
 @NgModule({
   declarations: [AppComponent, ActiveEmailComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  postAll: PostModel[] = [];
-  posts: PostModel[] = [];
-  dataAll: PostModel[] = [];
+  public postAll: PostModel[] = [];
+  public posts: PostModel[] = [];
+  public dataAll: PostModel[] = [];
+  public itemDetail: any;
   private friends?: Object[] = [];
   private id?: string;
   constructor(
@@ -215,6 +216,7 @@ export class PostsComponent implements OnInit {
         modal.style.display = 'none';
       }
     };
-    this.router.navigate([`/post/${id}`]);
+
+    this.itemDetail = id;
   }
 }

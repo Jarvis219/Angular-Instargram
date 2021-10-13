@@ -1,37 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { io } from 'socket.io-client';
 import { SocketIo } from '../model/socket-model';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class SocketService {
-  currentDocument = this.socket.fromEvent<Document>('document');
-  documents = this.socket.fromEvent<string[]>('documents');
+  public message$: BehaviorSubject<string> = new BehaviorSubject('');
+  constructor() {}
 
-  constructor(private socket: Socket) {}
+  socket = io(environment.urlSocket);
 
-  getDocument(id: string) {
-    this.socket.emit('getDoc', id);
+  public sendMessage(user: string, content: string) {
+    this.socket.emit('message', {
+      user,
+      content,
+    });
   }
 
-  newDocument() {
-    this.socket.emit('addDoc', { id: this.docId(), doc: '' });
-  }
+  public getNewMessage = () => {
+    this.socket.on('message', (message) => {
+      this.message$.next(message);
+    });
 
-  editDocument(document: Document) {
-    this.socket.emit('editDoc', document);
-  }
-
-  private docId() {
-    let text = '';
-    const possible =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (let i = 0; i < 5; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return text;
-  }
+    return this.message$.asObservable();
+  };
 }

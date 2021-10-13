@@ -24,7 +24,7 @@ export class PostFormComponent implements OnInit {
   private photo?: string[];
   private downloadURL?: any;
   private task?: AngularFireUploadTask;
-
+  public loading: boolean = false;
   public postForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -52,6 +52,7 @@ export class PostFormComponent implements OnInit {
   }
 
   public async createPost(): Promise<void> {
+    this.loading = true;
     let image: any = this.photo;
     if (!image) {
       this.post = [
@@ -67,6 +68,7 @@ export class PostFormComponent implements OnInit {
           const { like }: any = likes;
           const love: any = [{ like: like._id }];
           this.postService.updatePost(data._id, love).subscribe(() => {
+            this.loading = false;
             window.location.reload();
           });
         });

@@ -4,7 +4,6 @@ import {
 } from 'uuid';
 const User = require('../Model/userModel');
 const nodemailer = require('nodemailer');
-const expressJwt = require('express-jwt');
 
 // đăng ký gửi from về email
 export const registerControllers = async (req, res) => {
@@ -527,7 +526,7 @@ exports.signin = (req, res) => {
     const token = jwt.sign({
       _id: user._id
     }, process.env.JWT_SECRET, {
-      expiresIn: '1800s'
+      expiresIn: '3600s'
     });
 
     res.cookie('token', token, {
@@ -564,12 +563,6 @@ export const signout = (req, res) => {
   })
 }
 
-// xác thực mã hóa JWT_SECRET
-// export const requireSignin = expressJwt({
-//   secret: process.env.JWT_SECRET,
-//   algorithms: ["HS256"],
-//   userProperty: "auth",
-// })
 
 // xác nhận là user tồn tại
 export const isAuth = (req, res, next) => {

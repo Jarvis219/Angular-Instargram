@@ -50,7 +50,6 @@ export class UserService {
   }
 
   public signOut(): Observable<UserModel[]> {
-    // localStorage.clear();
     localStorage.removeItem('active');
     localStorage.removeItem('id');
     sessionStorage.removeItem('token');

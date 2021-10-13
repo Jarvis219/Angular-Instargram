@@ -17,9 +17,6 @@ export const authToken = (req, res, next) => {
       })
     }
     next();
-    // res.json({
-    //   data
-    // })
 
   })
 
