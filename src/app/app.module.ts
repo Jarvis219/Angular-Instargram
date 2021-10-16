@@ -7,6 +7,7 @@ import { ActiveEmailComponent } from './screen/login/active-email/active-email.c
 import { SocketService } from './services/socket.service';
 import { JwtInterceptor } from './until/jwt.interceptor';
 import { ErrorInterceptor } from './until/error.interceptor';
+import { ListCommentComponent } from './screen/main/posts/list-comment/list-comment.component';
 
 @NgModule({
   declarations: [AppComponent, ActiveEmailComponent],

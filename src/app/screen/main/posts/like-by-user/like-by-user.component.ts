@@ -26,7 +26,6 @@ export class LikeByUserComponent implements OnChanges, OnInit {
     e.preventDefault();
     this.getUser();
     const likesUser = document.querySelector('.like_user') as HTMLElement;
-    let btnUserLike = document.querySelectorAll('#listLike');
     const overBg = document.querySelector('#overBg') as HTMLElement;
     let modal: HTMLElement = document.getElementById('likeDetailPost')!;
     overBg.style.backgroundColor = 'black';
@@ -46,8 +45,7 @@ export class LikeByUserComponent implements OnChanges, OnInit {
 
   clearBox(e: any) {
     e.preventDefault();
-    const likesUser = document.querySelector('.like_user') as HTMLElement;
-    let btnUserLike = document.querySelectorAll('#listLike');
+    const likesUser = document.querySelector('.like_user') as HTMLElement
     const overBg = document.querySelector('#overBg') as HTMLElement;
     likesUser.style.display = 'none';
     overBg.style.backgroundColor = '';

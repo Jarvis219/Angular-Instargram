@@ -62,7 +62,7 @@
   </button>
 </div>
 <section class="side-menu">
-  <div class="side-menu__user-profile">
+  <div class="side-menu__user-profile" >
     <a
       href="https://github.com/leocosta1"
       target="_blank"
@@ -71,7 +71,7 @@
       <img src="https://picsum.photos/200" alt="User Picture" />
     </a>
     <div class="side-menu__user-info">
-      <a href="https://github.com/leocosta1" target="_blank">leocosta1</a>
+      <a href="https://github.com/leocosta1" target="_blank">{{user.name}}</a>
       <span>Leonardo Costa</span>
     </div>
     <button class="side-menu__user-button">Switch</button>
@@ -82,7 +82,7 @@
       <h2>Suggestions for You</h2>
       <button>See All</button>
     </div>
-    <div class="side-menu__suggestions-content">
+    <div class="side-menu__suggestions-content" *ngFor=>
       <div class="side-menu__suggestion">
         <a href="#" class="side-menu__suggestion-avatar">
           <img src="https://picsum.photos/200" alt="User Picture" />

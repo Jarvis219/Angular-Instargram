@@ -91,7 +91,7 @@
               {{ post.createdAt | timeDistance: post.createdAt }}
             </span>
           </div>
-
+          <app-list-comment  [itemPost]="post" ></app-list-comment>
           <app-comment [itemPost]="post"></app-comment>
         </div>
       </div>
