@@ -49,7 +49,7 @@ export class ListCommentComponent implements OnInit {
       if (comment) {
         for (let i = 0; i < count; i++) {
           this.limitData.push(this.comments[i]);
-          console.log(this.limitData);
+          // console.log(this.limitData);
         }
       } else if (this.limitData){
         this.limitData= []

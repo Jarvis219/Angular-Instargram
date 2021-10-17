@@ -24,6 +24,9 @@ export class StoryComponent implements OnInit {
     this.checkActiveUserOnline();
     this.getUser();
     this.getFriendUser()
+    console.log(this.dataUser);
+    
+    
   }
 
   // check user active online
@@ -47,7 +50,9 @@ export class StoryComponent implements OnInit {
   private getFriendUser(): void {
     this.friends.forEach((element: string) => {
       this.userService.profileDetail(element).subscribe((data: any) => {
-        this.findFriendActiveStatus(data);
+        // console.log(data);
+        
+        this.dataUser.push(data)
         
       });
     });

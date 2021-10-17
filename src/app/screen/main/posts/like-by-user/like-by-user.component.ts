@@ -20,11 +20,10 @@ export class LikeByUserComponent implements OnChanges, OnInit {
 
   ngOnInit(): void {
     this.getUserLike();
+    this.getUser();
   }
 
-  listLike(e: any) {
-    e.preventDefault();
-    this.getUser();
+  listLike() {
     const likesUser = document.querySelector('.like_user') as HTMLElement;
     const overBg = document.querySelector('#overBg') as HTMLElement;
     let modal: HTMLElement = document.getElementById('likeDetailPost')!;
@@ -65,15 +64,18 @@ export class LikeByUserComponent implements OnChanges, OnInit {
       this.textLike = `${name} and ${like.amount - 1} others`;
     });
   }
+  getLike(){
 
+  }
   public getUser(): void {
     const { like } = this.itemPost;
+
     like.user.forEach((user: any) => {
       this.userService.profile(user).subscribe((data: any) => {
         this.userLike.push(data);
-        console.log(this.userLike);
       });
     });
+    console.log(this.itemPost);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
