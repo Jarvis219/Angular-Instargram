@@ -23,14 +23,21 @@ export class StoryComponent implements OnInit {
     this.getButtonStory();
     this.checkActiveUserOnline();
     this.getUser();
+    this.getFriendUser()
+    console.log(this.dataUser);
+    
+    
   }
 
   // check user active online
   private checkActiveUserOnline(): void {
     this.friendService.findUser(this.id).subscribe((data: FriendModel[]) => {
       let { friend }: any = data;
+    
+      
       if (friend) {
         const { friends } = friend;
+       
         if (!friends) return;
         friends.forEach((element: string) => {
           this.friends.push(element);
@@ -43,15 +50,22 @@ export class StoryComponent implements OnInit {
   private getFriendUser(): void {
     this.friends.forEach((element: string) => {
       this.userService.profileDetail(element).subscribe((data: any) => {
-        this.findFriendActiveStatus(data);
+        // console.log(data);
+        
+        this.dataUser.push(data)
+        
       });
     });
   }
 
   private findFriendActiveStatus(data: FriendModel[]): void {
     const { activeStatus }: any = data;
+
     if (activeStatus) {
       this.dataUser.push(data);
+      console.log(this.dataUser);
+      
+      
     }
   }
 
@@ -64,6 +78,8 @@ export class StoryComponent implements OnInit {
   private getUser(): void {
     this.userService.profileDetail(this.id).subscribe((data: UserModel[]) => {
       this.user = data;
+   
+      
     });
   }
 

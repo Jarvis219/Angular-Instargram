@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
   private getUser(): void {
     this.userService.profileDetail(this.id!).subscribe((data) => {
       this.dataUser = data;
+      console.log(data);
+      
     });
   }
 
